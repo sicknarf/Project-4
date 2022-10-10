@@ -21,6 +21,7 @@ class SignUpForm extends Component {
     password: '',
     confirm: '',
     error: '',
+    isEditor: false
   }
 
   handleSubmit = async (evt) => {
@@ -37,6 +38,10 @@ class SignUpForm extends Component {
         })
     }
   }
+
+  onChangeRole=(event)=>{
+    this.setState({isEditor: event.target.value})
+}
 
   handleChange = (evt) => {
     this.setState({
@@ -56,6 +61,21 @@ class SignUpForm extends Component {
             <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
             <label>Email</label>
             <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
+            <label>I am a...</label>
+            <select>
+              <option
+                value={false}
+                onChange={this.onChangeRole}
+                >
+                Content Creator
+              </option>
+              <option
+                value={true}
+                onChange={this.onChangeRole}
+                >
+                Video Editor
+              </option>
+            </select>
             <label>Password</label>
             <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
             <label>Confirm</label>

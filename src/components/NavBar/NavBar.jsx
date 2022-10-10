@@ -11,9 +11,9 @@ function NavBar({user, setUser}){
 
     return(
     <nav>
-        <Link to="/orders">Order History</Link>
+        <Link to="/videos">Video History</Link>
         &nbsp; | &nbsp;
-        <Link to="/orders/new">New Order</Link>
+        <Link to="/videos/new">New Video</Link>
         &nbsp; | &nbsp;
         <span>Welcome, {user.name}</span>
         &nbsp; | &nbsp;

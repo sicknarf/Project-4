@@ -21,6 +21,10 @@ const userSchema = new Schema({
         trim: true,
         minLength: 3,
         required: true
+    },
+    isEditor: {
+        type: Boolean,
+        required: true
     }
 }, {
     timestamps: true,
