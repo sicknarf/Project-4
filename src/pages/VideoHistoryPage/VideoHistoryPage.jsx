@@ -14,12 +14,6 @@ function OrderHistoryPage({user, setUser}) {
   }, [])
 
 
-
-  // async function handleCheckToken(){
-  //   const expDate = await userService.checkToken()
-  //   console.log(expDate)
-  // }
-
   return (
     <div>
        {user.isEditor ?

@@ -19,7 +19,8 @@ async function ccVideoEdited(req, res) {
 }
 
 async function ccVideoPost(req, res) {
-    const video = await Video.create(req.body)
-    console.log(video)
+    const video = new Video(req.body)
+    video.requester = req.user._id
+    await video.save()
     res.json(video)
 }
