@@ -62,16 +62,14 @@ class SignUpForm extends Component {
             <label>Email</label>
             <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
             <label>I am a...</label>
-            <select>
+            <select onChange={this.onChangeRole}>
               <option
                 value={false}
-                onChange={this.onChangeRole}
                 >
                 Content Creator
               </option>
               <option
                 value={true}
-                onChange={this.onChangeRole}
                 >
                 Video Editor
               </option>
