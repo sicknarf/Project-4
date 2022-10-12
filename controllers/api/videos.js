@@ -5,7 +5,8 @@ module.exports = {
     ccVideoEdited,
     ccVideoPost,
     myVideos,
-    assign
+    assign,
+
 }
 
 async function ccVideoRequest(req, res) {
@@ -34,9 +35,10 @@ async function ccVideoPost(req, res) {
 }
 
 async function assign(req, res) {
-    console.log(`this is reqparamsid ${req.params.id}`)
-    const video = await Video.find({_id: req.body._id})
-    video.editor = req.params.id
-    await video.save()
+    console.log(`this is reqparamsid ${req.user._id}`)
+    const video = await Video.findOne({_id: req.body._id})
+    video.editor = req.user._id
     console.log(video)
+    await video.save()
+    res.json(video)
 }
