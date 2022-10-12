@@ -4,11 +4,13 @@ import * as usersAPI from '../../utilities/users-api'
 export default function VideoDetail({video}){
 
     const [username, setUsername] = useState('')
-    const [editor, setEditor] = useState('mikewizowsky')
+    const [editor, setEditor] = useState('')
 
     useEffect(function (){
         async function getUsername() {
             const user = await usersAPI.findUser(video.requester)
+            console.log(`below is video.requester`)
+            console.log(video.requester)
             setUsername(user.name)
         }
         getUsername();
@@ -16,8 +18,8 @@ export default function VideoDetail({video}){
 
     useEffect(function() {
         async function getEditor(){
-            console.log('hello????')
-            console.log(video)
+            console.log('directly below is video.editor')
+            console.log(video.editor)
             const theEditor = await usersAPI.findUser(video.editor)
             setEditor(theEditor.name)
         }
