@@ -47,10 +47,14 @@ function checkToken(req, res) {
 }
 
 async function findUser(req, res) {
-    console.log(`the following is req.params ${req.params.id}`)
-    const user = await User.findOne({_id: req.params.id});
-    console.log(`${user} is user`)
-    res.json(user)
+    try{
+        console.log(`the following is req.params ${req.params.id}`)
+        const user = await User.findOne({_id: req.params.id});
+        console.log(`${user} is user`)
+        res.json(user)}
+    catch {
+        return null
+    }
 }
 
 
