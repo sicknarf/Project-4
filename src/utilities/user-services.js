@@ -64,7 +64,12 @@ export function logOut(){
     localStorage.removeItem('token')
 }
 
-export function checkToken(){
+export async function checkToken(){
     return usersAPI.checkToken()
         .then(dateStr => new Date(dateStr));
+}
+
+export async function findUser(userId){
+    const user = await usersAPI.findUser(userId)
+    return user
 }

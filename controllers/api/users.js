@@ -6,7 +6,6 @@ const bcrypt = require('bcrypt')
 
 async function login(req, res){
     try{
-        console.log(req.body)
         const user = await User.findOne({email: req.body.email});
         if(!user) throw new Error();
         const match = await bcrypt.compare(req.body.password, user.password);
@@ -44,12 +43,17 @@ function createJWT(user){
 }
 
 function checkToken(req, res) {
-    console.log('req.user', req.user);
     res.json(req.exp);
+}
+
+async function findUser(req, res) {
+    const user = await User.findOne({id: req.params});
+    res.json(user)
 }
 
 module.exports = {
     create,
     login,
-    checkToken
+    checkToken,
+    findUser
 }
