@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import * as usersAPI from '../../utilities/users-api'
 import * as videosAPI from '../../utilities/videos-api'
 
-export default function VideoDetail({video, user}){
+export default function VideoDetail({video, user, setVideos}){
 
     const [username, setUsername] = useState('')
     const [editor, setEditor] = useState('')
+    const navigate = useNavigate();
 
     useEffect(function (){
         async function getUsername() {
@@ -32,7 +34,8 @@ export default function VideoDetail({video, user}){
     }, [])
 
     async function assignEditor(){
-        videosAPI.assignEditor(video, user)
+        videosAPI.assignEditor(video, user);
+        navigate('/videos')
     }
 
     return(

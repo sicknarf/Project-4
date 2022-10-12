@@ -57,10 +57,10 @@ class SignUpForm extends Component {
       <div>
         <div className="form-container">
           <form autoComplete="off" onSubmit={this.handleSubmit}>
-            <label>Name</label>
-            <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
+            <label>userame:</label>
+            <input type="text" name="name" value={this.state.name} onChange={this.handleChange} placeholder="enter a username..." required />
             <label>Email</label>
-            <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
+            <input type="email" name="email" value={this.state.email} onChange={this.handleChange} placeholder="enter your email..." required />
             <label>I am a...</label>
             <select onChange={this.onChangeRole}>
               <option

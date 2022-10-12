@@ -8,6 +8,7 @@ function NewVideoPage({user, setUser}) {
 
   const navigate = useNavigate();
 
+  const [assignVideo, setAssignVideo] = useState([])
   const [videos, setVideos] = useState([])
   const [newVideo, setNewVideo] = useState({
     url: "",
@@ -44,7 +45,7 @@ function NewVideoPage({user, setUser}) {
         // THIS IS FOR VIDEO EDITORS
         <div>
         <h1>Video Editors: Take on New Gig</h1>
-        <NoEditorVideos videos={videos} user={user}/>  
+        <NoEditorVideos videos={videos} user={user} setVideos={setVideos}/>  
         </div>
 
         : // THIS IS FOR CONTENT CREATORS
