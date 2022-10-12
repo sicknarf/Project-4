@@ -19,3 +19,6 @@ export function creatorPostVideo(video) {
     return sendRequest(`${BASE_URL}/videos/creators/new`, 'POST', video)
 }
 
+export function assignEditor(video, user) {
+    return sendRequest(`${BASE_URL}/videos/editors/assign/${user}`, 'POST', video)
+}

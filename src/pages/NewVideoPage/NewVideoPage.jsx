@@ -20,7 +20,7 @@ function NewVideoPage({user, setUser}) {
   async function handleAddVideo(evt){
     evt.preventDefault();
     await videosAPI.creatorPostVideo(newVideo);
-    // navigate('/videos')
+    navigate('/videos')
   }
 
     function handleChange(e) {

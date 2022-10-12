@@ -30,7 +30,7 @@ function OrderHistoryPage({user, setUser}) {
         // THIS IS FOR VIDEO EDITORS
         <div>
           <h1>this is video history page for video editors</h1>  
-          <NoEditorVideos videos={videos}/>
+          <NoEditorVideos videos={videos} user={user}/>
         </div>
 
         // THIS IS FOR CONTENT CREATORS
