@@ -5,7 +5,7 @@ const videosCtrl = require('../../controllers/api/videos');
 // GET 
 router.get('/videos', videosCtrl.ccVideoRequest);
 router.get('/my-videos', videosCtrl.myVideos);
-router.get('/videos/in-progress', videosCtrl.ccVideoEdited);
+router.get('/videos/in-progress', videosCtrl.editorGigs);
 
 // POST
 router.post('/videos/creators/new', videosCtrl.ccVideoPost);

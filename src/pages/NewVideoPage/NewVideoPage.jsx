@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import * as videosAPI from '../../utilities/videos-api'
 import { useNavigate } from 'react-router-dom';
+import NoEditorVideos from '../../components/NoEditorVideos/NoEditorVideos';
 
 function NewVideoPage({user, setUser}) {
 
   const navigate = useNavigate();
 
+  const [videos, setVideos] = useState([])
   const [newVideo, setNewVideo] = useState({
     url: "",
     requester: "",
@@ -16,6 +18,14 @@ function NewVideoPage({user, setUser}) {
     editedResponse: "",
     comments: []
   })
+
+    useEffect(function (){
+      async function getNoEditorVideos() {
+        const videos = await videosAPI.getNoEditVideos()
+        setVideos(videos)
+      }
+      getNoEditorVideos();
+    }, [])
 
   async function handleAddVideo(evt){
     evt.preventDefault();
@@ -32,10 +42,12 @@ function NewVideoPage({user, setUser}) {
     <div>
        {user.isEditor ?
         // THIS IS FOR VIDEO EDITORS
-        <h1>this is new video page for video editors</h1> : 
+        <div>
+        <h1>Video Editors: Take on New Gig</h1>
+        <NoEditorVideos videos={videos} user={user}/>  
+        </div>
 
-
-        // THIS IS FOR CONTENT CREATORS
+        : // THIS IS FOR CONTENT CREATORS
         <div>
           <h1>this is new video page for content creators</h1>
           <form className='ccVideoForm' onSubmit={handleAddVideo}>

@@ -1,4 +1,3 @@
-import NoEditorVideoItem from "../NoEditorVideoItem/NoEditorVideoItem"
 import VideoDetail from "../VideoDetail/VideoDetail"
 
 export default function NoEditorVideos({videos, user}){

@@ -10,7 +10,8 @@ export function getMyVideos(){
     return sendRequest(`${BASE_URL}/my-videos`)
 }
 
-export function getEditingVideos() {
+export function getEditorGigs() {
+    console.log('going through the API')
     return sendRequest(`${BASE_URL}/videos/in-progress`)
 }
 

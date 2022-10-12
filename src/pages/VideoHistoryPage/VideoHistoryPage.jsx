@@ -1,20 +1,21 @@
 import { useEffect, useState } from 'react';
-import NoEditorVideos from '../../components/NoEditorVideos/NoEditorVideos';
 import VideoList from '../../components/VideoList/VideoList';
-import * as userService from '../../utilities/user-services'
+import EditorGigs from '../../components/EditorGigs/EditorGigs';
 import * as videosAPI from '../../utilities/videos-api'
 
 function OrderHistoryPage({user, setUser}) {
-  const [videos, setVideos] = useState([])
+  const [gigs, setGigs] = useState([])
   const [myVideos, setMyVideos] = useState([])
 
-  useEffect(function (){
-    async function getNoEditorVideos() {
-      const videos = await videosAPI.getNoEditVideos()
-      setVideos(videos)
+  useEffect(function(){
+    async function getEditorGigs() {
+      console.log('console log in the videohistorypage')
+      const videos = await videosAPI.getEditorGigs()
+      setGigs(videos)
     }
-    getNoEditorVideos();
+    getEditorGigs()
   }, [])
+  
 
   useEffect(function(){
     async function getMyVideos() {
@@ -29,15 +30,15 @@ function OrderHistoryPage({user, setUser}) {
        {user.isEditor ?
         // THIS IS FOR VIDEO EDITORS
         <div>
-          <h1>this is video history page for video editors</h1>  
-          <NoEditorVideos videos={videos} user={user}/>
+          <h1>Video Editors: My Current Gigs</h1>  
+          <EditorGigs videos={gigs} user={user} />
         </div>
 
         // THIS IS FOR CONTENT CREATORS
         :
         <div>
           <h1>this is video history page for content creators</h1>
-          <VideoList videos={myVideos}/>
+          <VideoList videos={myVideos} user={user}/>
         </div>
         }
     </div>

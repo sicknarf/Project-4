@@ -23,14 +23,9 @@ export default function VideoDetail({video, user}){
             console.log('directly below is video.editor')
             console.log(video.editor)
             const user = await usersAPI.findUser(video.editor)
-            // if(user === null){
-                // setEditor('disdoafjalsdfadsf')
-            // } else {
-                setEditor(user.name)
-            // }
-            console.log(user.name+" is userdfgsfgs")
+            setEditor(user.name)
         } catch {
-
+            setEditor('there was an issue pulling the editor\'s information')
         }
         }
         getEditor()
@@ -52,7 +47,7 @@ export default function VideoDetail({video, user}){
             {video.requestDescription}
             <h3>editor</h3>
             {editor === '' ? 'no editor yet!' : editor }
-            {user.isEditor ? 
+            {user.isEditor && video.editor === null ? 
             <div>
                 <br />
             <button onClick={assignEditor}>this user is an editor</button>

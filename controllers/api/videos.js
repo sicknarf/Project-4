@@ -2,7 +2,7 @@ const Video = require('../../models/video')
 
 module.exports = {
     ccVideoRequest,
-    ccVideoEdited,
+    editorGigs,
     ccVideoPost,
     myVideos,
     assign,
@@ -21,9 +21,12 @@ async function myVideos(req, res) {
     res.json(myVids)
 }
 
-async function ccVideoEdited(req, res) {
+async function editorGigs(req, res) {
     // pull the video history for videos in progress of being edited
-    const edited = await Video.find({requester: req.user_id, editor: !null})
+    console.log('...reached controller')
+    console.log(`this is req.body: ${req.body}`)
+    const edited = await Video.find({editor: req.user._id})
+    console.log(edited)
     res.json(edited)
 }
 
