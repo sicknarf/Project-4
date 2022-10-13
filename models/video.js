@@ -13,7 +13,7 @@ const videoSchema = new Schema({
     requestDescription: {type: String, required: true},
     editor: {type: Schema.Types.ObjectId, ref: 'User'},
     editedResponse: {type: String},
-    comments: [commentSchema]
+    comments: [commentSchema],
 }, {timestamps: true})
 
 

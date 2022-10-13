@@ -44,7 +44,6 @@ export default function VideoDetail({ video, user, setVidDelete }){
     async function deleteVideo(){
         videosAPI.deleteVideo(video)
         setVidDelete([1])
-        // navigate('/videos/new')
     }
     
 

@@ -4,7 +4,7 @@ import * as videosAPI from '../../utilities/videos-api'
 import { useNavigate } from 'react-router-dom';
 import NoEditorVideos from '../../components/NoEditorVideos/NoEditorVideos';
 
-function NewVideoPage({user, setUser}) {
+function NewVideoPage({user, setUser, setVidCreate}) {
 
   const navigate = useNavigate();
 
@@ -31,6 +31,7 @@ function NewVideoPage({user, setUser}) {
   async function handleAddVideo(evt){
     evt.preventDefault();
     await videosAPI.creatorPostVideo(newVideo);
+    setVidCreate([1])
     navigate('/videos')
   }
 

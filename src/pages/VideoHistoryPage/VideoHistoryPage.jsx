@@ -6,55 +6,49 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import Portal from '../Portal/Portal';
 import { Navigate } from 'react-router-dom';
 
-function OrderHistoryPage({user, setUser }) {
+function VideoHistoryPage({user, setUser, gigs, setGigs, myVideos, setMyVideos, setVidDelete }) {
   // gigs={gigs}
   // setGigs={setGigs}
   // myVideos={myVideos}
   // setMyVideos={setMyVideos}
   const navigate = useNavigate();
 
-  const [gigs, setGigs] = useState([])
-  const [vidDelete, setVidDelete] = useState([])
-  const [myVideos, setMyVideos] = useState([])
+  // const [gigs, setGigs] = useState([])
+  // const [vidDelete, setVidDelete] = useState([])
+  // const [myVideos, setMyVideos] = useState([])
 
 
-  useEffect(function(){
-    async function getEditorGigs() {
-      try{
-      console.log('console log in the videohistorypage')
-      const videos = await videosAPI.getEditorGigs()
-      setGigs(videos)
-      } catch {
+  // useEffect(function(){
+  //   async function getEditorGigs() {
+  //     try{
+  //     console.log('console log in the videohistorypage')
+  //     const videos = await videosAPI.getEditorGigs()
+  //     setGigs(videos)
+  //     } catch {
       
-      }
-    }
-    getEditorGigs()
-  }, [vidDelete])
+  //     }
+  //   }
+  //   getEditorGigs()
+  // }, [vidDelete])
   
 
-  useEffect(function(){
-    async function getMyVideos() {
-      try{
-      const videos = await videosAPI.getMyVideos()
-      setMyVideos(videos)
-      } catch {
+  // useEffect(function(){
+  //   async function getMyVideos() {
+  //     try{
+  //     const videos = await videosAPI.getMyVideos()
+  //     setMyVideos(videos)
+  //     } catch {
 
-      }
-    }
-    getMyVideos();
-  }, [vidDelete])
+  //     }
+  //   }
+  //   getMyVideos();
+  // }, [vidDelete])
 
   
 
 
   return (
     <div>
-      {/* <Routes>
-            <Route path="/videos/:id" element={<Portal 
-              user={user}
-              gigs={gigs}
-              myVideos={myVideos}/>} />
-      </Routes> */}
        {user.isEditor ?
         // THIS IS FOR VIDEO EDITORS
         <div>
@@ -76,4 +70,4 @@ function OrderHistoryPage({user, setUser }) {
   
 }
 
-export default OrderHistoryPage;
+export default VideoHistoryPage;
