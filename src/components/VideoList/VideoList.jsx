@@ -1,10 +1,10 @@
 import { useState } from "react";
 import VideoDetail from "../VideoDetail/VideoDetail";
 
-export default function VideoList({videos, user}){
+export default function VideoList({videos, user, setVidDelete }){
 
     const myVideos = videos.map(v => 
-        <VideoDetail video={v} key={v._id} user={user} />
+        <VideoDetail video={v} key={v._id} user={user} setVidDelete={setVidDelete} />
         )
 
     return(

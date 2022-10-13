@@ -2,11 +2,14 @@ import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import * as usersAPI from '../../utilities/users-api'
 import * as videosAPI from '../../utilities/videos-api'
+import { Route, Routes } from 'react-router-dom'
+import Portal from '../../pages/Portal/Portal'
 
-export default function VideoDetail({video, user, setVideos}){
+export default function VideoDetail({ video, user, setVidDelete }){
 
     const [username, setUsername] = useState('')
     const [editor, setEditor] = useState('')
+    
     const navigate = useNavigate();
 
     useEffect(function (){
@@ -38,6 +41,13 @@ export default function VideoDetail({video, user, setVideos}){
         navigate(`/videos`)
     }
 
+    async function deleteVideo(){
+        videosAPI.deleteVideo(video)
+        setVidDelete([1])
+        // navigate('/videos/new')
+    }
+    
+
     return(
         <div>
             <h3>url</h3>
@@ -49,7 +59,15 @@ export default function VideoDetail({video, user, setVideos}){
             <h3>description</h3>
             {video.requestDescription}
             <h3>editor</h3>
-            {editor === '' ? 'no editor yet!' : editor }
+            {editor === '' ? 
+            
+            
+            
+            <button onClick={deleteVideo}>no editor yet, click to cancel request</button> 
+            
+            
+            
+            : editor }
             {user.isEditor && video.editor === null ? 
             <div>
                 <br />

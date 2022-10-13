@@ -11,39 +11,39 @@ import { useEffect } from 'react';
 import Portal from '../Portal/Portal';
 
 
-
-
 function App() {
 
   const [user, setUser] = useState(getUser());
-  const [gigs, setGigs] = useState([])
-  const [myVideos, setMyVideos] = useState([])
 
-  useEffect(function(){
-    async function getEditorGigs() {
-      try{
-      console.log('console log in the videohistorypage')
-      const videos = await videosAPI.getEditorGigs()
-      setGigs(videos)
-      } catch {
+  // const [gigs, setGigs] = useState([])
+  // const [myVideos, setMyVideos] = useState([])
+
+  // useEffect(function(){
+  //   async function getEditorGigs() {
+  //     try{
+  //     console.log('console log in the videohistorypage')
+  //     const videos = await videosAPI.getEditorGigs()
+  //     setGigs(videos)
+  //     } catch {
       
-      }
-    }
-    getEditorGigs()
-  }, [])
+  //     }
+  //   }
+  //   getEditorGigs()
+  // }, [])
   
 
-  useEffect(function(){
-    async function getMyVideos() {
-      try{
-      const videos = await videosAPI.getMyVideos()
-      setMyVideos(videos)
-      } catch {
+  // useEffect(function(){
+  //   async function getMyVideos() {
+  //     try{
+  //     const videos = await videosAPI.getMyVideos()
+  //     setMyVideos(videos)
+  //     } catch {
 
-      }
-    }
-    getMyVideos();
-  }, [])
+  //     }
+  //   }
+  //   getMyVideos();
+  // }, [])
+  
 
   return (
     <main className="App">
@@ -54,15 +54,15 @@ function App() {
         <Route path="/videos/new" element={<NewVideoPage user={user} setUser={setUser}/>} />
         <Route path="/videos" element={<VideoHistoryPage 
                                         user={user} 
-                                        setUser={setUser} 
-                                        gigs={gigs}
-                                        setGigs={setGigs}
-                                        myVideos={myVideos}
-                                        setMyVideos={setMyVideos}/>} />
-        <Route path="/videos/:id" element={<Portal 
-                                        user={user}
-                                        gigs={gigs}
-                                        myVideos={myVideos}/>} />
+                                        setUser={setUser} />} />
+        {/* <Route path="/videos/:id" element={<Portal 
+                                              user={user}
+                                              gigs={gigs}
+                                              myVideos={myVideos}
+                                              setUser={setUser}
+                                              setGigs={setGigs}
+                                              setMyVideos={setMyVideos}
+                                              />} /> */}
       </Routes>
       </div>: 
         <AuthPage setUser={setUser}/>}

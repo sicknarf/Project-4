@@ -23,3 +23,7 @@ export function creatorPostVideo(video) {
 export function assignEditor(video, user) {
     return sendRequest(`${BASE_URL}/videos/editors/assign/${user}`, 'POST', video)
 }
+
+export function deleteVideo(video) {
+    return sendRequest(`${BASE_URL}/videos/delete`, 'POST', video)
+}

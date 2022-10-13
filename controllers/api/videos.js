@@ -6,7 +6,7 @@ module.exports = {
     ccVideoPost,
     myVideos,
     assign,
-
+    deleteVideo
 }
 
 async function ccVideoRequest(req, res) {
@@ -46,4 +46,11 @@ async function assign(req, res) {
     console.log(video)
     await video.save()
     res.json(video)
+}
+
+async function deleteVideo(req, res){
+    console.log('video delete making it to controller')
+    console.log(`this is req.body ${req.body._id}`)
+    await Video.findByIdAndDelete(req.body._id)
+    res.json('video deleted')
 }
