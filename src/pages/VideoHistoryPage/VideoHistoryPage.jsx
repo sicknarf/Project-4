@@ -6,45 +6,8 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import Portal from '../Portal/Portal';
 import { Navigate } from 'react-router-dom';
 
-function VideoHistoryPage({user, setUser, gigs, setGigs, myVideos, setMyVideos, setVidDelete }) {
-  // gigs={gigs}
-  // setGigs={setGigs}
-  // myVideos={myVideos}
-  // setMyVideos={setMyVideos}
-  const navigate = useNavigate();
+function VideoHistoryPage({user, gigs, myVideos, setVidDelete }) {
 
-  // const [gigs, setGigs] = useState([])
-  // const [vidDelete, setVidDelete] = useState([])
-  // const [myVideos, setMyVideos] = useState([])
-
-
-  // useEffect(function(){
-  //   async function getEditorGigs() {
-  //     try{
-  //     console.log('console log in the videohistorypage')
-  //     const videos = await videosAPI.getEditorGigs()
-  //     setGigs(videos)
-  //     } catch {
-      
-  //     }
-  //   }
-  //   getEditorGigs()
-  // }, [vidDelete])
-  
-
-  // useEffect(function(){
-  //   async function getMyVideos() {
-  //     try{
-  //     const videos = await videosAPI.getMyVideos()
-  //     setMyVideos(videos)
-  //     } catch {
-
-  //     }
-  //   }
-  //   getMyVideos();
-  // }, [vidDelete])
-
-  
 
 
   return (
@@ -59,7 +22,7 @@ function VideoHistoryPage({user, setUser, gigs, setGigs, myVideos, setMyVideos, 
         // THIS IS FOR CONTENT CREATORS
         :
         <div>
-          <h1>this is video history page for content creators</h1>
+          <h1>Content Creators: My Posted Videos</h1>
           <VideoList videos={myVideos} user={user} setVidDelete={setVidDelete}/>
         </div>
         }

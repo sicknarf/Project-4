@@ -5,12 +5,12 @@ import * as videosAPI from '../../utilities/videos-api'
 import { Route, Routes } from 'react-router-dom'
 import Portal from '../../pages/Portal/Portal'
 
-export default function VideoDetail({ video, user, setVidDelete }){
-
+export default function VideoDetail({ video, user, setVidDelete, setGigAssign }){
+    
+    const navigate = useNavigate();
     const [username, setUsername] = useState('')
     const [editor, setEditor] = useState('')
     
-    const navigate = useNavigate();
 
     useEffect(function (){
         async function getUsername() {
@@ -38,6 +38,7 @@ export default function VideoDetail({ video, user, setVidDelete }){
 
     async function assignEditor(){
         videosAPI.assignEditor(video, user)
+        setGigAssign([1])
         navigate(`/videos`)
     }
 
@@ -58,7 +59,7 @@ export default function VideoDetail({ video, user, setVidDelete }){
             <h3>description</h3>
             {video.requestDescription}
             <h3>editor</h3>
-            {editor === '' ? 
+            {editor === '' && user.isEditor === false ? 
             
             
             
@@ -69,8 +70,9 @@ export default function VideoDetail({ video, user, setVidDelete }){
             : editor }
             {user.isEditor && video.editor === null ? 
             <div>
+            no editor yet!
                 <br />
-            <button onClick={assignEditor}>this user is an editor</button>
+            <button onClick={assignEditor}>take on this gig</button>
             </div>
             : ''}
             {video.editor ? 

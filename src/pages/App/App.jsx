@@ -15,6 +15,7 @@ function App() {
 
   const [user, setUser] = useState(getUser());
   const [vidDelete, setVidDelete] = useState([]);
+  const [gigAssign, setGigAssign] = useState([]);
   const [vidCreate, setVidCreate] = useState([]);
   const [signIn, setSignIn] = useState([]);
   const [gigs, setGigs] = useState([]);
@@ -31,7 +32,7 @@ function App() {
       }
     }
     getEditorGigs()
-  }, [vidDelete, vidCreate, signIn])
+  }, [vidDelete, vidCreate, signIn, gigAssign])
   
 
   useEffect(function(){
@@ -53,11 +54,17 @@ function App() {
       <div>
       <NavBar user={user} setUser={setUser}/>
       <Routes>
-        <Route path="/videos/new" element={<NewVideoPage user={user} setUser={setUser} setVidCreate={setVidCreate} />} />
+        <Route path="/videos/new" element={<NewVideoPage 
+                                            user={user} 
+                                            setUser={setUser} 
+                                            setVidCreate={setVidCreate} 
+                                            setGigAssign={setGigAssign}
+                                            />} />
         <Route path="/videos" element={<VideoHistoryPage 
                                         user={user} 
                                         setUser={setUser}
                                         myVideos={myVideos}
+                                        gigs={gigs}
                                         setGigs={setGigs}
                                         setMyVideos={setMyVideos} 
                                         setVidDelete={setVidDelete}/>} />

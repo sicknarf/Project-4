@@ -4,11 +4,10 @@ import * as videosAPI from '../../utilities/videos-api'
 import { useNavigate } from 'react-router-dom';
 import NoEditorVideos from '../../components/NoEditorVideos/NoEditorVideos';
 
-function NewVideoPage({user, setUser, setVidCreate}) {
+function NewVideoPage({user, setVidCreate, setGigAssign}) {
 
   const navigate = useNavigate();
 
-  const [assignVideo, setAssignVideo] = useState([])
   const [videos, setVideos] = useState([])
   const [newVideo, setNewVideo] = useState({
     url: "",
@@ -46,12 +45,12 @@ function NewVideoPage({user, setUser, setVidCreate}) {
         // THIS IS FOR VIDEO EDITORS
         <div>
         <h1>Video Editors: Take on New Gig</h1>
-        <NoEditorVideos videos={videos} user={user} setVideos={setVideos}/>  
+        <NoEditorVideos videos={videos} user={user} setVideos={setVideos} setGigAssign={setGigAssign}/>  
         </div>
 
         : // THIS IS FOR CONTENT CREATORS
         <div>
-          <h1>this is new video page for content creators</h1>
+          <h1>Content Creators: New Video</h1>
           <form className='ccVideoForm' onSubmit={handleAddVideo}>
             <label>title:</label>
             <input 
