@@ -39,7 +39,7 @@ function App() {
       const videos = await videosAPI.getMyVideos()
       setMyVideos(videos)
       } catch {
-        
+
       }
     }
     getMyVideos();
