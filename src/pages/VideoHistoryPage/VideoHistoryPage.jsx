@@ -3,27 +3,8 @@ import VideoList from '../../components/VideoList/VideoList';
 import EditorGigs from '../../components/EditorGigs/EditorGigs';
 import * as videosAPI from '../../utilities/videos-api'
 
-function OrderHistoryPage({user, setUser}) {
-  const [gigs, setGigs] = useState([])
-  const [myVideos, setMyVideos] = useState([])
+function OrderHistoryPage({user, setUser, gigs, setGigs, myVideos, setMyVideos}) {
 
-  useEffect(function(){
-    async function getEditorGigs() {
-      console.log('console log in the videohistorypage')
-      const videos = await videosAPI.getEditorGigs()
-      setGigs(videos)
-    }
-    getEditorGigs()
-  }, [])
-  
-
-  useEffect(function(){
-    async function getMyVideos() {
-      const videos = await videosAPI.getMyVideos()
-      setMyVideos(videos)
-    }
-    getMyVideos();
-  }, [])
 
   return (
     <div>

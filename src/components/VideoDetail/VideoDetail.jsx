@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import * as usersAPI from '../../utilities/users-api'
 import * as videosAPI from '../../utilities/videos-api'
 
@@ -34,8 +34,8 @@ export default function VideoDetail({video, user, setVideos}){
     }, [])
 
     async function assignEditor(){
-        videosAPI.assignEditor(video, user);
-        navigate('/videos')
+        videosAPI.assignEditor(video, user)
+        navigate(`/videos`)
     }
 
     return(
@@ -55,6 +55,15 @@ export default function VideoDetail({video, user, setVideos}){
                 <br />
             <button onClick={assignEditor}>this user is an editor</button>
             </div>
+            : ''}
+            {video.editor ? 
+            <div>
+                <Link to={`/videos/${video._id}`}>
+                click to see more
+                </Link>
+            </div> 
+            
+            
             : ''}
         </div>
     )

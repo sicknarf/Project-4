@@ -4,8 +4,11 @@ import AuthPage from '../AuthPage/AuthPage';
 import NewVideoPage from '../NewVideoPage/NewVideoPage';
 import VideoHistoryPage from '../VideoHistoryPage/VideoHistoryPage';
 import NavBar from '../../components/NavBar/NavBar';
+import * as videosAPI from '../../utilities/videos-api'
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/user-services';
+import { useEffect } from 'react';
+import Portal from '../Portal/Portal';
 
 
 
@@ -13,7 +16,26 @@ import { getUser } from '../../utilities/user-services';
 function App() {
 
   const [user, setUser] = useState(getUser());
+  const [gigs, setGigs] = useState([])
+  const [myVideos, setMyVideos] = useState([])
 
+  useEffect(function(){
+    async function getEditorGigs() {
+      console.log('console log in the videohistorypage')
+      const videos = await videosAPI.getEditorGigs()
+      setGigs(videos)
+    }
+    getEditorGigs()
+  }, [])
+  
+
+  useEffect(function(){
+    async function getMyVideos() {
+      const videos = await videosAPI.getMyVideos()
+      setMyVideos(videos)
+    }
+    getMyVideos();
+  }, [])
 
   return (
     <main className="App">
@@ -22,7 +44,17 @@ function App() {
       <NavBar user={user} setUser={setUser}/>
       <Routes>
         <Route path="/videos/new" element={<NewVideoPage user={user} setUser={setUser}/>} />
-        <Route path="/videos" element={<VideoHistoryPage user={user} setUser={setUser}/>} />
+        <Route path="/videos" element={<VideoHistoryPage 
+                                        user={user} 
+                                        setUser={setUser} 
+                                        gigs={gigs}
+                                        setGigs={setGigs}
+                                        myVideos={myVideos}
+                                        setMyVideos={setMyVideos}/>} />
+        <Route path="/videos/:id" element={<Portal 
+                                        user={user}
+                                        gigs={gigs}
+                                        myVideos={myVideos}/>} />
       </Routes>
       </div>: 
         <AuthPage setUser={setUser}/>}
