@@ -17,17 +17,19 @@ async function ccVideoRequest(req, res) {
 
 
 async function myVideos(req, res) {
+    try{
     const myVids = await Video.find({requester: req.user._id})
     res.json(myVids)
+    } catch {}
 }
 
 async function editorGigs(req, res) {
     // pull the video history for videos in progress of being edited
-    console.log('...reached controller')
-    console.log(`this is req.body: ${req.body}`)
+    try{
     const edited = await Video.find({editor: req.user._id})
     console.log(edited)
     res.json(edited)
+    } catch {}
 }
 
 async function ccVideoPost(req, res) {

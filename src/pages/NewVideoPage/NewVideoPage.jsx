@@ -61,6 +61,7 @@ function NewVideoPage({user, setUser}) {
               />
             <label>video link:</label>
             <input 
+              type="url"
               value={newVideo.url}
               name="url"
               onChange={handleChange}

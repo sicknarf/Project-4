@@ -21,9 +21,13 @@ function App() {
 
   useEffect(function(){
     async function getEditorGigs() {
+      try{
       console.log('console log in the videohistorypage')
       const videos = await videosAPI.getEditorGigs()
       setGigs(videos)
+      } catch {
+      
+      }
     }
     getEditorGigs()
   }, [])
@@ -31,8 +35,12 @@ function App() {
 
   useEffect(function(){
     async function getMyVideos() {
+      try{
       const videos = await videosAPI.getMyVideos()
       setMyVideos(videos)
+      } catch {
+        
+      }
     }
     getMyVideos();
   }, [])
