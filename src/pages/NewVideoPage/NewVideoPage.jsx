@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Navigate } from 'react-router-dom';
 import * as videosAPI from '../../utilities/videos-api'
 import { useNavigate } from 'react-router-dom';
 import NoEditorVideos from '../../components/NoEditorVideos/NoEditorVideos';
+import './NewVideoPage.css'
 
 function NewVideoPage({user, setVidCreate, setGigAssign}) {
 
@@ -49,7 +49,7 @@ function NewVideoPage({user, setVidCreate, setGigAssign}) {
         </div>
 
         : // THIS IS FOR CONTENT CREATORS
-        <div>
+        <div className='form-container'>
           <h1>Content Creators: New Video</h1>
           <form className='ccVideoForm' onSubmit={handleAddVideo}>
             <label>title:</label>
@@ -74,7 +74,7 @@ function NewVideoPage({user, setVidCreate, setGigAssign}) {
               onChange={handleChange}
               placeholder="please provide a brief description.."
               />
-          <button type='submit'>submit</button>
+          <br /><button type='submit'>submit</button>
           </form>
         </div>
         }

@@ -1,21 +1,20 @@
-.AuthPage {
+.NewVideoPage {
     height: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     background-color: var(--white);
     border-radius: 2vmin;;
-    padding-top: 2vmin;
     flex-direction: column;
   }
   
-  .AuthPage h3 {
-    margin-top: 4vmin;
+  .NewVideoPage h3 {
     text-align: center;
     color: var(--text-light);
     cursor: pointer;
   }
 
+
   .form-container {
-    margin-top: 20px;
+    padding-bottom: 6vmin;
   }

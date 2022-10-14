@@ -15,8 +15,6 @@ export default function VideoDetail({ video, user, setVidDelete, setGigAssign })
     useEffect(function (){
         async function getUsername() {
             const user = await usersAPI.findUser(video.requester)
-            console.log(`below is video.requester`)
-            console.log(video.requester)
             setUsername(user.name)
         }
         getUsername();
@@ -25,8 +23,6 @@ export default function VideoDetail({ video, user, setVidDelete, setGigAssign })
     useEffect(function() {
         async function getEditor(){
             try{
-            console.log('directly below is video.editor')
-            console.log(video.editor)
             const user = await usersAPI.findUser(video.editor)
             setEditor(user.name)
         } catch {

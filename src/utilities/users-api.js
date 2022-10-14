@@ -17,6 +17,5 @@ export function checkToken(){
 }
 
 export async function findUser(userId){
-    console.log(`this is userId: ${userId}`)
     return sendRequest(`${BASE_URL}/find-user/${userId}`,)
 }

@@ -4,21 +4,23 @@ import * as usersAPI from '../../utilities/users-api'
 import { Link } from "react-router-dom";
 import './Portal.css'
 import * as videosAPI from '../../utilities/videos-api'
+import VideoComments from "../../components/VideoComments/VideComments";
+
 
 export default function Portal({user, gigs, myVideos}){
     let id = useParams().id;
 
     const [filtered, setFiltered] = useState({})
     const [comment, setComment] = useState({comment: '', user: user._id})
+    const [newUrl, setNewUrl] = useState({text:''})
     const [myComments, setMyComments] = useState([])
+    
     const [commentsDependency, setCommentsDependency] = useState([])
 
     const [requesterName, setRequesterName] = useState('[data loading]')
     const [editorName, setEditorName] = useState('[data loading]')
 
     console.log('============================Portal starts here============================')
-
-   
 
 
     useEffect(function(){
@@ -40,17 +42,24 @@ export default function Portal({user, gigs, myVideos}){
         getFiltered()
     }, [])
 
-    useEffect(function(){
-        async function getVideoComments() {
-          try{
-          const comments = await videosAPI.getMyComments(filtered)
-          setMyComments(comments)
-          } catch {
     
-          }
-        }
-        getVideoComments();
-      }, [handleAddComment])
+
+    console.log('filtered  below')
+    console.log(filtered)
+
+    // useEffect(function(){
+    //     async function getVideoComments() {
+    //       try{
+    //       const comments = await videosAPI.getMyComments(filtered)
+    //       console.log(comments)
+    //       console.log('hey its me, the comments')
+    //       setMyComments(comments)
+    //       } catch {
+    
+    //       }
+    //     }
+    //     getVideoComments();
+    //   }, [])
 
     async function getUsername() {
         const user = await usersAPI.findUser(filtered.requester)
@@ -76,6 +85,19 @@ export default function Portal({user, gigs, myVideos}){
         setCommentsDependency([1]);
     }
 
+    function handleAddUrl(evt){
+        evt.preventDefault();
+        console.log('portal.jsx going to videosApi')
+        videosAPI.addUrl(filtered._id, newUrl.text)
+    }
+
+    function handleUrlChange(e) {
+        setNewUrl({...newUrl, [e.target.name]:e.target.value})
+    }
+
+    console.log(myComments)
+
+
     return(
         <div>
             <h2>this should be the portal</h2>
@@ -83,6 +105,18 @@ export default function Portal({user, gigs, myVideos}){
             requested by: {requesterName} | editing by: {editorName} <br />
             <Link to={filtered.url} target="_blank">video link</Link>
             <p>{filtered.requestDescription}</p>
+            {/* <h6>comments:</h6>
+            <VideoComments comments={myComments}/> */}
+            <form onSubmit={handleAddUrl}>
+                <input 
+                    type="text"
+                    name="text"
+                    value={newUrl.text}
+                    onChange={handleUrlChange}
+                    
+                    />
+                    <button type="submit">add url</button>
+            </form>
             <form onSubmit={handleAddComment}>
                 <textarea name='comment' onChange={handleCommentChange} placeholder="enter a comment"/>
                 <br />

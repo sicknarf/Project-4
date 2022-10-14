@@ -61,8 +61,13 @@ class SignUpForm extends Component {
             <input type="text" name="name" value={this.state.name} onChange={this.handleChange} placeholder="enter a username..." required />
             <label>Email</label>
             <input type="email" name="email" value={this.state.email} onChange={this.handleChange} placeholder="enter your email..." required />
+            <label>Password</label>
+            <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
+            <label>Confirm</label>
+            <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
             <label>I am a...</label>
             <select onChange={this.onChangeRole}>
+              <option>choose one</option>
               <option
                 value={false}
                 >
@@ -74,10 +79,6 @@ class SignUpForm extends Component {
                 Video Editor
               </option>
             </select>
-            <label>Password</label>
-            <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
-            <label>Confirm</label>
-            <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
             <br /><button type="submit" disabled={disable}>SIGN UP</button>
           </form>
         </div>

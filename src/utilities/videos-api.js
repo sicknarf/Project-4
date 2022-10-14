@@ -11,7 +11,6 @@ export function getMyVideos(){
 }
 
 export function getEditorGigs() {
-    console.log('going through the API')
     return sendRequest(`${BASE_URL}/videos/in-progress`)
 }
 
@@ -29,9 +28,15 @@ export function deleteVideo(video) {
 }
 
 export function getMyComments(video) {
-    return sendRequest(`${BASE_URL}/portal/comments`)
+    console.log(`${video} is video`)
+    return sendRequest(`${BASE_URL}/portal/comments/${video}`)
 }
 
 export function addComment(videoId, comment){
     return sendRequest(`${BASE_URL}/portal/new-comment/${videoId}`, 'POST', comment)
+}
+
+export function addUrl(videoId, newUrl){
+    console.log('videosAPItriggered')
+    return sendRequest(`${BASE_URL}/portal/new-url/${videoId}`, 'POST', newUrl)
 }

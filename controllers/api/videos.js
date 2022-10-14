@@ -8,7 +8,8 @@ module.exports = {
     assign,
     deleteVideo,
     getComments,
-    addComment
+    addComment,
+    addUrl
 }
 
 async function ccVideoRequest(req, res) {
@@ -29,7 +30,6 @@ async function editorGigs(req, res) {
     // pull the video history for videos in progress of being edited
     try{
     const edited = await Video.find({editor: req.user._id})
-    console.log(edited)
     res.json(edited)
     } catch {}
 }
@@ -42,28 +42,33 @@ async function ccVideoPost(req, res) {
 }
 
 async function assign(req, res) {
-    console.log(`this is reqparamsid ${req.user._id}`)
     const video = await Video.findOne({_id: req.body._id})
     video.editor = req.user._id
-    console.log(video)
     await video.save()
     res.json(video)
 }
 
 async function deleteVideo(req, res){
-    console.log('video delete making it to controller')
-    console.log(`this is req.body ${req.body._id}`)
     await Video.findByIdAndDelete(req.body._id)
     res.json('video deleted')
 }
 
 async function getComments(req, res){
-    console.log(req.body)
+    console.log(`${req.params.id} is reqparams in getComments`)
 }
 
 async function addComment(req, res){
     const video = await Video.findOne({_id: req.params.id})
     video.comments.push(req.body)
     await video.save()
+    res.json(video)
+}
+
+async function addUrl(req, res){
+    console.log('we are in the controller.')
+    const video = await Video.findOne({_id: req.params.id})
+    console.log(`back to the controller! this is video: ${video} and this is reqbody ${req.body}`)
+    // video.editedResponse = req.body
+    // await video.save()
     res.json(video)
 }
