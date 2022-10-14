@@ -88,7 +88,7 @@ export default function Portal({user, gigs, myVideos}){
     function handleAddUrl(evt){
         evt.preventDefault();
         console.log('portal.jsx going to videosApi')
-        videosAPI.addUrl(filtered._id, newUrl.text)
+        videosAPI.addUrl(filtered._id, newUrl)
     }
 
     function handleUrlChange(e) {
@@ -105,8 +105,8 @@ export default function Portal({user, gigs, myVideos}){
             requested by: {requesterName} | editing by: {editorName} <br />
             <Link to={filtered.url} target="_blank">video link</Link>
             <p>{filtered.requestDescription}</p>
-            {/* <h6>comments:</h6>
-            <VideoComments comments={myComments}/> */}
+            {filtered.editedResponse !== '' ? <Link to={filtered.editedResponse}>edited video</Link> : '' }
+            {user.isEditor ? 
             <form onSubmit={handleAddUrl}>
                 <input 
                     type="text"
@@ -117,11 +117,14 @@ export default function Portal({user, gigs, myVideos}){
                     />
                     <button type="submit">add url</button>
             </form>
-            <form onSubmit={handleAddComment}>
+            : ''}
+            <div className="comments-section">
+                <form onSubmit={handleAddComment}>
                 <textarea name='comment' onChange={handleCommentChange} placeholder="enter a comment"/>
                 <br />
                 <button type='submit'>submit comment</button>
-            </form>
+                </form>
+            </div>
         </div>
     )
 }

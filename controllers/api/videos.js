@@ -67,8 +67,8 @@ async function addComment(req, res){
 async function addUrl(req, res){
     console.log('we are in the controller.')
     const video = await Video.findOne({_id: req.params.id})
-    console.log(`back to the controller! this is video: ${video} and this is reqbody ${req.body}`)
-    // video.editedResponse = req.body
-    // await video.save()
+    console.log(`back to the controller! this is video: ${video} and this is reqbody ${req.body.text}`)
+    video.editedResponse = req.body.text
+    await video.save()
     res.json(video)
 }

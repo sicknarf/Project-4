@@ -13,6 +13,6 @@ router.post('/videos/creators/new', videosCtrl.ccVideoPost);
 router.post('/videos/delete', videosCtrl.deleteVideo)
 router.post('/videos/editors/assign/:id', videosCtrl.assign);
 router.post('/portal/new-comment/:id', videosCtrl.addComment);
-router.post('/portal/new-url/:id', videosCtrl.addUrl)
+router.post('/portal/new-url/:id', videosCtrl.addUrl);
 
 module.exports = router
