@@ -7,10 +7,10 @@ function AuthPage({setUser, setSignIn}) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
-    <main>
+    <div className='AuthPage'>
         <button onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'sign up instead' : 'log in instead'}</button>
         {showLogin ? <LoginForm setUser={setUser} setSignIn={setSignIn}/> : <SignUpForm setUser={setUser} setSignIn={setSignIn}/>}
-    </main>
+    </div>
   );
 
 }
