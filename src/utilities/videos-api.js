@@ -27,3 +27,11 @@ export function assignEditor(video, user) {
 export function deleteVideo(video) {
     return sendRequest(`${BASE_URL}/videos/delete`, 'POST', video)
 }
+
+export function getMyComments(video) {
+    return sendRequest(`${BASE_URL}/portal/comments`)
+}
+
+export function addComment(videoId, comment){
+    return sendRequest(`${BASE_URL}/portal/new-comment/${videoId}`, 'POST', comment)
+}

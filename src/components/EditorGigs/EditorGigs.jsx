@@ -12,7 +12,7 @@ export default function EditorGigs({videos, user, setVidDelete }){
 
     return(
         <div>
-            <h2>this should be a list of all gigs the editor agreed to</h2>
+            <h2>My gigs:</h2>
             {myVideos}
         </div>
     )

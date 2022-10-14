@@ -1,0 +1,14 @@
+textarea {
+    margin: 0 auto;
+
+}
+
+form {
+    display: block;
+    align-items: center;
+    margin: 0 auto
+}
+
+.comments {
+    margin: 0 auto
+}

@@ -8,8 +8,8 @@ import Portal from '../../pages/Portal/Portal'
 export default function VideoDetail({ video, user, setVidDelete, setGigAssign }){
     
     const navigate = useNavigate();
-    const [username, setUsername] = useState('')
-    const [editor, setEditor] = useState('')
+    const [username, setUsername] = useState('[data loading]')
+    const [editor, setEditor] = useState('[data loading]')
     
 
     useEffect(function (){
@@ -59,7 +59,7 @@ export default function VideoDetail({ video, user, setVidDelete, setGigAssign })
             <h3>description</h3>
             {video.requestDescription}
             <h3>editor</h3>
-            {editor === '' && user.isEditor === false ? 
+            {editor === '[data loading]' && user.isEditor === false ? 
             
             
             
