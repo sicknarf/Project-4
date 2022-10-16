@@ -32,7 +32,7 @@ export default function VideoDetail({ video, user, setVidDelete, setGigAssign })
     }, [])
 
     async function assignEditor(){
-        videosAPI.assignEditor(video, user)
+        await videosAPI.assignEditor(video, user)
         setGigAssign([1])
         navigate(`/videos`)
     }
