@@ -1,7 +1,7 @@
-export default function VideoCommentItem({ text, commenter }){
+export default async function VideoCommentItem({ text, commenter }){
     return(
         <div>
-            hello, it is I, an individual comment.
+            icebox item: comment
         </div>
     )
 }

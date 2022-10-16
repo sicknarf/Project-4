@@ -20,6 +20,7 @@ function App() {
   const [signIn, setSignIn] = useState([]);
   const [gigs, setGigs] = useState([]);
   const [myVideos, setMyVideos] = useState([]);
+  const [uploadUrl, setUploadUrl] = useState([])
 
   useEffect(function(){
     async function getEditorGigs() {
@@ -31,7 +32,7 @@ function App() {
       }
     }
     getEditorGigs()
-  }, [vidDelete, vidCreate, signIn, gigAssign])
+  }, [vidDelete, vidCreate, signIn, gigAssign, uploadUrl])
   
 
   useEffect(function(){
@@ -44,7 +45,7 @@ function App() {
       }
     }
     getMyVideos();
-  }, [vidDelete, vidCreate, signIn])
+  }, [vidDelete, vidCreate, signIn, uploadUrl])
   
 
   return (
@@ -74,6 +75,7 @@ function App() {
                                               setUser={setUser}
                                               setGigs={setGigs}
                                               setMyVideos={setMyVideos}
+                                              setUploadUrl={setUploadUrl}
                                               />} />
       </Routes>
       </div>: 

@@ -12,7 +12,6 @@ export default function EditorGigs({videos, user, setVidDelete }){
 
     return(
         <div>
-            <h2>My gigs:</h2>
             {myVideos}
         </div>
     )

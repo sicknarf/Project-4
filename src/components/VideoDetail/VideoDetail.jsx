@@ -2,14 +2,13 @@ import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import * as usersAPI from '../../utilities/users-api'
 import * as videosAPI from '../../utilities/videos-api'
-import { Route, Routes } from 'react-router-dom'
-import Portal from '../../pages/Portal/Portal'
+import './VideoDetail.css'
 
 export default function VideoDetail({ video, user, setVidDelete, setGigAssign }){
     
     const navigate = useNavigate();
     const [username, setUsername] = useState('[data loading]')
-    const [editor, setEditor] = useState('[data loading]')
+    const [editor, setEditor] = useState('[no editor yet]')
     
 
     useEffect(function (){
@@ -45,36 +44,40 @@ export default function VideoDetail({ video, user, setVidDelete, setGigAssign })
     
 
     return(
-        <div>
-            <h3>url</h3>
-            {video.url}
-            <h3>requester</h3>
-            {username}
-            <h3>title</h3>
-            {video.title}
-            <h3>description</h3>
-            {video.requestDescription}
-            <h3>editor</h3>
-            {editor === '[data loading]' && user.isEditor === false ? 
+        <div className='video-detail'>
+            <h3>{video.title}</h3>
+            <div className='detail-titles'>
+                <div>
+                    <h4>url</h4>
+                    <Link to={video.url}>[link]</Link>
+                </div>
+                <div>
+                    <h4>requester</h4>
+                    <span>{username}</span>
+                </div>
+                <div>
+                    <h4>editor</h4>
+                    {editor === '[no editor yet]' && !user.isEditor ? 
+                        <button className='cancel' onClick={deleteVideo}>click to cancel request</button> 
+                    : editor }
+                </div>
+            </div>
             
+            <div className='detail-body'>
+                <div><h4>description:&nbsp;</h4></div>
+                <div><span>{video.requestDescription}</span></div>
+            </div>
             
-            
-            <button onClick={deleteVideo}>no editor yet, click to cancel request</button> 
-            
-            
-            
-            : editor }
+
             {user.isEditor && video.editor === null ? 
             <div>
-            no editor yet!
-                <br />
-            <button onClick={assignEditor}>take on this gig</button>
+            <button className='new-gig' onClick={assignEditor}>take on this gig</button>
             </div>
             : ''}
             {video.editor ? 
             <div>
                 <Link to={`/videos/${video._id}`}>
-                click to see more
+                <button>click to see more</button>
                 </Link>
             </div> 
             

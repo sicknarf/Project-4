@@ -1,13 +1,13 @@
 /* CSS Custom Properties */
 :root {
   --white: #FFFFFF;
-  --tan-1: #FBF9F6;
-  --tan-2: #E7E2DD;
-  --tan-3: #E2D9D1;
-  --tan-4: #D3C1AE;
-  --orange: #F67F00;
-  --text-light: #968c84;
-  --text-dark: #615954;
+  --tan-1: #5c5c5c;
+  --tan-2: #666666;
+  --tan-3: #767676;
+  --tan-4: #272727;
+  --orange: #a800f6;
+  --text-light: #ececec;
+  --text-dark: #848484;
 }
 
 *, *:before, *:after {
@@ -162,3 +162,11 @@ button[type="submit"] {
   margin: 1vmin 0 0;
 }
 
+a {
+  text-decoration: none;
+  color:aqua
+}
+
+h1 {
+  color:white
+}

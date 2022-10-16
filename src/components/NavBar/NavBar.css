@@ -1,0 +1,29 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgb(138, 43, 226);
+    user-select: none;
+    height: 50px;
+    margin: -3vmin;
+    margin-bottom: 3vmin;
+    color: white;
+}
+nav div {
+    line-height: 3rem;
+    padding: 0 1rem;
+    
+}
+nav > div:last-child {
+    margin-left: auto;
+}
+
+nav a {
+    color: rgb(193, 193, 193);
+    text-decoration: none;
+}
+
+nav div:hover {
+    background-color: rgb(168, 73, 256);
+}

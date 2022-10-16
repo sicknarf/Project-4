@@ -1,14 +1,15 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as usersAPI from '../../utilities/users-api'
 import { Link } from "react-router-dom";
 import './Portal.css'
 import * as videosAPI from '../../utilities/videos-api'
-import VideoComments from "../../components/VideoComments/VideComments";
 
 
-export default function Portal({user, gigs, myVideos}){
+
+export default function Portal({user, gigs, myVideos, setUploadUrl}){
     let id = useParams().id;
+    const navigate = useNavigate();
 
     const [filtered, setFiltered] = useState({})
     const [comment, setComment] = useState({comment: '', user: user._id})
@@ -20,7 +21,6 @@ export default function Portal({user, gigs, myVideos}){
     const [requesterName, setRequesterName] = useState('[data loading]')
     const [editorName, setEditorName] = useState('[data loading]')
 
-    console.log('============================Portal starts here============================')
 
 
     useEffect(function(){
@@ -44,7 +44,7 @@ export default function Portal({user, gigs, myVideos}){
 
     
 
-    console.log('filtered  below')
+    console.log('filtered  below8888888888888888888')
     console.log(filtered)
 
     // useEffect(function(){
@@ -89,21 +89,35 @@ export default function Portal({user, gigs, myVideos}){
         evt.preventDefault();
         console.log('portal.jsx going to videosApi')
         videosAPI.addUrl(filtered._id, newUrl)
+        navigate('/videos')
+        setUploadUrl([1])
+
     }
 
     function handleUrlChange(e) {
         setNewUrl({...newUrl, [e.target.name]:e.target.value})
     }
 
-    console.log(myComments)
+    // console.log(myComments)
+    console.log('this is filtered.comments')
+    console.log(filtered.comments)
+    console.log('this is filtered')
+    console.log(filtered)
+
+    // let allComments = filtered.comments.map((c) =>
+    //     <VideoCommentItem 
+    //         text={c.comment}
+    //         commenter={c.user}/>
+    // )
 
 
     return(
         <div>
-            <h2>this should be the portal</h2>
-            <h3>{filtered.title}</h3>
+            <h1>Portal for video: {filtered.title}</h1>
+            <div className="portal-card">
             requested by: {requesterName} | editing by: {editorName} <br />
             <Link to={filtered.url} target="_blank">video link</Link>
+            <h5>description:</h5>
             <p>{filtered.requestDescription}</p>
             {filtered.editedResponse !== '' ? <Link to={filtered.editedResponse}>edited video</Link> : '' }
             {user.isEditor ? 
@@ -118,12 +132,15 @@ export default function Portal({user, gigs, myVideos}){
                     <button type="submit">add url</button>
             </form>
             : ''}
-            <div className="comments-section">
+            {/* <div className="comments-section">
+                {allComments}
+                <VideoComments comments={filtered.comments}/>
                 <form onSubmit={handleAddComment}>
                 <textarea name='comment' onChange={handleCommentChange} placeholder="enter a comment"/>
                 <br />
                 <button type='submit'>submit comment</button>
                 </form>
+            </div> */}
             </div>
         </div>
     )

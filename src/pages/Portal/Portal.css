@@ -1,6 +1,5 @@
 textarea {
     margin: 0 auto;
-
 }
 
 form {
@@ -11,4 +10,10 @@ form {
 
 .comments {
     margin: 0 auto
+}
+
+.portal-card {
+    background-color: var(--tan-2);
+    padding: 3vmin;
+    color: var(--text-light)
 }

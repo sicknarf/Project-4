@@ -44,13 +44,19 @@ function NewVideoPage({user, setVidCreate, setGigAssign}) {
        {user.isEditor ?
         // THIS IS FOR VIDEO EDITORS
         <div>
-        <h1>Video Editors: Take on New Gig</h1>
-        <NoEditorVideos videos={videos} user={user} setVideos={setVideos} setGigAssign={setGigAssign}/>  
+        <h1>Take on New Gig</h1>
+        <NoEditorVideos 
+          videos={videos} 
+          user={user} 
+          setVideos={setVideos} 
+          setGigAssign={setGigAssign}
+          />  
         </div>
 
         : // THIS IS FOR CONTENT CREATORS
+        <div>
+        <h1>Post a New Video</h1>
         <div className='form-container'>
-          <h1>Content Creators: New Video</h1>
           <form className='ccVideoForm' onSubmit={handleAddVideo}>
             <label>title:</label>
             <input 
@@ -76,6 +82,7 @@ function NewVideoPage({user, setVidCreate, setGigAssign}) {
               />
           <br /><button type='submit'>submit</button>
           </form>
+        </div>
         </div>
         }
     </div>

@@ -1,0 +1,36 @@
+.video-detail {
+    background-color: var(--tan-1);
+    margin: 7vmin;
+    padding: 6vmin;
+    border-radius: 15px;
+    color: var(--text-light)
+}
+
+.video-detail h3 {
+    margin-top: -2vmin;
+}
+
+.detail-titles{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.detail-body{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.video-detail button {
+    margin-top: -3vmin;
+    font-size: 16px;
+}
+
+.cancel {
+    background-color: red;
+}
+
+.new-gig {
+    background-color: rgb(0, 185, 0);
+}

@@ -9,7 +9,6 @@ export default function VideoList({videos, user, setVidDelete }){
 
     return(
         <div>
-            <h2>this should be a list of all videos the user posted</h2>
             {myVideos}
         </div>
     )

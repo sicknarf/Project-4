@@ -1,7 +1,9 @@
 import VideoCommentItem from "../VideoCommentItem/VideoCommentItem"
 
-export default function VideoComments({comments}){
-    let allComments = comments.map((c) =>
+export default async function VideoComments({comments}){
+    console.log('below is comments in VideoComments.jsx')
+    console.log(comments)
+    let allComments = await comments?.map((c) =>
         <VideoCommentItem 
             text={c.comment}
             commenter={c.user}/>
