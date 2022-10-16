@@ -49,7 +49,7 @@ export default function VideoDetail({ video, user, setVidDelete, setGigAssign })
             <div className='detail-titles'>
                 <div>
                     <h4>url</h4>
-                    <Link to={video.url}>[link]</Link>
+                    <a href={video.url} target="_blank">[link]</a>
                 </div>
                 <div>
                     <h4>requester</h4>
