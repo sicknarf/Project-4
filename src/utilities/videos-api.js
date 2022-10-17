@@ -37,8 +37,5 @@ export function addComment(videoId, comment){
 }
 
 export function addUrl(videoId, newUrl){
-    console.log('videosAPItriggered')
-    console.log(videoId)
-    console.log(newUrl)
     return sendRequest(`${BASE_URL}/portal/new-url/${videoId}`, 'POST', newUrl)
 }

@@ -94,11 +94,11 @@ export default function Portal({user, gigs, myVideos, setUploadUrl}){
         setNewUrl({...newUrl, [e.target.name]:e.target.value})
     }
 
-    console.log(myComments)
-    console.log('this is filtered.comments')
-    console.log(filtered.comments)
-    console.log('this is filtered')
-    console.log(filtered)
+    // console.log(myComments)
+    // console.log('this is filtered.comments')
+    // console.log(filtered.comments)
+    // console.log('this is filtered')
+    // console.log(filtered)
 
     // const [allComments, setAllComments] = useState()
 
@@ -113,8 +113,7 @@ export default function Portal({user, gigs, myVideos, setUploadUrl}){
     }
     pullComments();
 
-    console.log('LINE 116!!!!!!!!!!')
-    console.log(allComments)
+
     // let allComments = filtered.comments.map((c) =>
 
     //     <VideoCommentItem 
