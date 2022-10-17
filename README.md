@@ -1,7 +1,7 @@
 # edithub 
 
 
-Welcome to edithub! edithub is a space where content creators can post videos, and video editors can sign up for gigs that content creators have posted. 
+Welcome to edithub! edithub is a space where content creators can post videos, and video editors can sign up for gigs that content creators have posted. [live link here](https://edithub.herokuapp.com/)
 
 _______
 
@@ -44,4 +44,6 @@ _______
 
 ### Challenges & Successes
 
-The biggest challenge on this app was rendering the site based off of which user was accessing the app. It felt like I was programming two apps at the same time, but pulling it off felt incredibly rewarding. I do, however, wish that I had implented more functionality and complexity in the app itself. The challenge I faced that prevented this was working as a projections programmer at the same time as this project week, so I had no time outside of class to research or reach out and attend office hours to get feedback on my code. In the same vein, I was able to get full CRUD successfully up and running in spite of that.
+The biggest challenge on this app was rendering the site based off of which user was accessing the app. It felt like I was programming two apps at the same time, but pulling it off felt incredibly rewarding. I do, however, wish that I had implented more functionality and complexity in the app itself. The challenge I faced that prevented this was working as a projections programmer at the same time as this project week, so I had no time outside of class to research or reach out and attend office hours to get feedback on my code. In the same vein, I was able to get full CRUD successfully up and running in spite of that. This entire week was a rewarding experience in programming a show, opening a show, closing a show, and getting a full CRUD MERN stack application deployed.
+
+![image of a program featuring my name](https://i.imgur.com/nQGEyt9.jpg)
