@@ -129,7 +129,7 @@ export default function Portal({user, gigs, myVideos, setUploadUrl}){
             <h1>Portal for video: {filtered.title}</h1>
             <div className="portal-card">
             requested by: {requesterName} | editing by: {editorName} <br />
-            <Link to={filtered.url} target="_blank">video link</Link>
+            <a href={filtered.url} target="_blank">video link</a>
             <h5>description:</h5>
             <p>{filtered.requestDescription}</p>
             {filtered.editedResponse !== '' ? <a href={filtered.editedResponse}>edited video</a> : '' }
