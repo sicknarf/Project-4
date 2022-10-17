@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# edithub 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Welcome to edithub! edithub is a space where content creators can post videos, and video editors can sign up for gigs that content creators have posted. 
 
-In the project directory, you can run:
+_______
 
-### `npm start`
+### technologies used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+______
 
-### `npm test`
+### ERD
+![Imgur](https://imgur.com/tYQjqk3.jpeg)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+______
 
-### `npm run build`
+### User Stories & Future Features
+There are two types of users in this application. One user is the content creator, the other user is the editor. In these user stories, I will notate them as cc (content creator) and ve (video editor)
+- AAU (CC) I want to post a link to my clips to be edited
+- AAU (CC) I want to see all the videos I have posted
+- AAU (VE) I want to see all videos posted by content creators that don't have an editor
+- AAU (VE) I want to be able to upload a link to an edited video that I've assigned myself to
+- AAU (VE) I want to be able to see all my current gigs
+- (icebox) AAU (CC) I want to be able to mark a job as completed
+- (icebox) AAU (VE) I want an invoice to be generated and sent once a job has been completed
+- (icebox) AAU (CC&VE) I want to be able to leave comments
+- (icebox) AAU (CC) I want to rate the quality of work my editor did
+- (icebox) AAU (VE) I want to rate how easy it was to work with my content creator
+- (icebox) AAU (CC&VE) I want to be able to upload videos directly to the server instead of using a third party URL
+- (icebox) AAU (CC&VE) I want due dates and prices listed in the video
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+_______
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Wireframe
+[a link to the wireframe can be accessed here](https://whimsical.com/8CChDQsJ6nYFimEVWFijMJ)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+_______
 
-### `npm run eject`
+### Challenges & Successes
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The biggest challenge on this app was rendering the site based off of which user was accessing the app. It felt like I was programming two apps at the same time, but pulling it off felt incredibly rewarding. I do, however, wish that I had implented more functionality and complexity in the app itself. The challenge I faced that prevented this was working as a projections programmer at the same time as this project week, so I had no time outside of class to research or reach out and attend office hours to get feedback on my code. In the same vein, I was able to get full CRUD successfully up and running in spite of that.

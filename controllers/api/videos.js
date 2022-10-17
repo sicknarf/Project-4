@@ -54,7 +54,8 @@ async function deleteVideo(req, res){
 }
 
 async function getComments(req, res){
-    console.log(`${req.params.id} is reqparams in getComments`)
+    const video = await Video.findOne({id:req.params._id})
+    res.json(video.comments)
 }
 
 async function addComment(req, res){

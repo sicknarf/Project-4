@@ -28,8 +28,8 @@ export function deleteVideo(video) {
 }
 
 export function getMyComments(video) {
-    console.log(`${video} is video`)
-    return sendRequest(`${BASE_URL}/portal/comments/${video}`)
+    console.log(`${video._id} is video *********************`)
+    return sendRequest(`${BASE_URL}/portal/comments/${video._id}`)
 }
 
 export function addComment(videoId, comment){

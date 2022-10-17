@@ -4,6 +4,8 @@ import * as usersAPI from '../../utilities/users-api'
 import { Link } from "react-router-dom";
 import './Portal.css'
 import * as videosAPI from '../../utilities/videos-api'
+import VideoCommentItem from '../../components/VideoCommentItem/VideoCommentItem'
+import VideoComments from '../../components/VideoComments/VideoComments'
 
 
 
@@ -14,7 +16,7 @@ export default function Portal({user, gigs, myVideos, setUploadUrl}){
     const [filtered, setFiltered] = useState({})
     const [comment, setComment] = useState({comment: '', user: user._id})
     const [newUrl, setNewUrl] = useState({text:''})
-    const [myComments, setMyComments] = useState([])
+    const [myComments, setMyComments] = useState()
     
     const [commentsDependency, setCommentsDependency] = useState([])
 
@@ -44,22 +46,17 @@ export default function Portal({user, gigs, myVideos, setUploadUrl}){
 
     
 
-    console.log('filtered  below8888888888888888888')
-    console.log(filtered)
-
-    // useEffect(function(){
-    //     async function getVideoComments() {
-    //       try{
-    //       const comments = await videosAPI.getMyComments(filtered)
-    //       console.log(comments)
-    //       console.log('hey its me, the comments')
-    //       setMyComments(comments)
-    //       } catch {
+    useEffect(function(){
+        async function getVideoComments() {
+          try{
+          const comments = await videosAPI.getMyComments(filtered)
+          setMyComments([comments])
+          } catch {
     
-    //       }
-    //     }
-    //     getVideoComments();
-    //   }, [])
+          }
+        }
+        getVideoComments();
+      }, [])
 
     async function getUsername() {
         const user = await usersAPI.findUser(filtered.requester)
@@ -76,7 +73,6 @@ export default function Portal({user, gigs, myVideos, setUploadUrl}){
                 
     function handleCommentChange(e) {
         setComment({...comment, [e.target.name]:e.target.value})
-
     }
 
     function handleAddComment(evt){
@@ -98,16 +94,34 @@ export default function Portal({user, gigs, myVideos, setUploadUrl}){
         setNewUrl({...newUrl, [e.target.name]:e.target.value})
     }
 
-    // console.log(myComments)
+    console.log(myComments)
     console.log('this is filtered.comments')
     console.log(filtered.comments)
     console.log('this is filtered')
     console.log(filtered)
 
+    // const [allComments, setAllComments] = useState()
+
+    let allComments = null
+    
+    async function pullComments(){
+        allComments = await myComments.map((c)=>
+        <VideoCommentItem 
+            comment={c}
+            />
+        )
+    }
+    pullComments();
+
+    console.log('LINE 116!!!!!!!!!!')
+    console.log(allComments)
     // let allComments = filtered.comments.map((c) =>
+
     //     <VideoCommentItem 
     //         text={c.comment}
     //         commenter={c.user}/>
+        
+    
     // )
 
 
@@ -132,15 +146,15 @@ export default function Portal({user, gigs, myVideos, setUploadUrl}){
                     <button type="submit">add url</button>
             </form>
             : ''}
-            {/* <div className="comments-section">
-                {allComments}
-                <VideoComments comments={filtered.comments}/>
+            <div className="comments-section">
+                {/* {allComments} */}
+                {/* <VideoComments comments={myComments}/> */}
                 <form onSubmit={handleAddComment}>
                 <textarea name='comment' onChange={handleCommentChange} placeholder="enter a comment"/>
                 <br />
                 <button type='submit'>submit comment</button>
                 </form>
-            </div> */}
+            </div>
             </div>
         </div>
     )
